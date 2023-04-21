@@ -1,0 +1,61 @@
+# exclude SafeMath when calculating test coverage
+# https://eth-brownie.readthedocs.io/en/v1.10.3/config.html#exclude_paths
+reports:
+  exclude_contracts:
+    - SafeMath
+dependencies:
+  - OpenZeppelin/openzeppelin-contracts@4.3.2
+  - UniSwap/v3-core@1.0.0
+  - UniSwap/v3-periphery@1.0.0
+compiler:
+  solc:
+    remappings:
+      - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.3.2"
+      - "@uniswap/v3-core=UniSwap/v3-core@1.0.0"
+      - "@uniswap/v3-periphery=UniSwap/v3-periphery@1.0.0"
+# automatically fetch contract sources from Etherscan
+autofetch_sources: True
+# Uncomment to use the .env file
+# dotenv: .env
+# set a custom mnemonic for the development network
+networks:
+  default: development
+  development:
+    RNGServiceStub: "0x0328AcC09545F88e2c7aa8cb8c71CB66BA9015a1"
+    YieldSource: "0x36fDf4605DeEf87EC327112cEeCE03E6964616e8"
+    update_interval: 60
+    verify: False
+  eth-dev:
+    BPT: "0x3a7C725C9852F03BFCD0741490A9D4738Cd4CbE8"
+    factory: "0x3a7C725C9852F03BFCD0741490A9D4738Cd4CbE8"
+    minterAmount: 100000000000000000
+    verify: False
+    save: "options_eth_dev.json"
+    BTC: "0x1C2f71a40E7448Dd578C752b570D676284004048"
+    USDC: "0x9191806b17D80546013bB6dAB6e9709e778Bb130"
+    interval: 30
+    fee: 500
+    block_time: 15
+    from_key: "1ec44728c86ead56373e360c1e3bc40e9681d4492ee0d312d01115ab15143582"
+    test_key: "1ec44728c86ead56373e360c1e3bc40e9681d4492ee0d312d01115ab15143582"
+  polygon-weshare:
+    BPT: "0x00241dCC4a9c43D10895c4fF93D9493C52e7f8eB"
+    minterAmount: 100000000000000000000000
+    verify: False
+    save: "options_poly.json"
+    oracleManager: "0x5c82640C2b4ea1822A8335Fd1dbDb7CACcb9a1b0"
+    yieldManager: "0x5c82640C2b4ea1822A8335Fd1dbDb7CACcb9a1b0"
+    from_key: "25e57993269a47d612afd04eef9854cb525aa2c9536e8064df9c9a11869d9f41"
+  goerli-weshare:
+    BPT: "0x2DbE60FAB268b7927136DeCb377D676A0aBab913"
+    minterAmount: 100000000000000000000000
+    save: "options_goerli.json"
+    oracleManager: "0xB59a4A698AaD568B01E6AbdC2ff30f2293A6Bd40"
+    yieldManager: "0xB59a4A698AaD568B01E6AbdC2ff30f2293A6Bd40"
+    from_key: "25e57993269a47d612afd04eef9854cb525aa2c9536e8064df9c9a11869d9f41"
+wallets:
+  from_key: "*****"
+  address: "0x78B94517A5Acf30d06d228368ae8403B46235fBE"
+  from_mnemonic: ${MNEMONIC}
+
+  # could also do from_mnemonic, and you'd have to change the accounts.add to accounts.from_mnemonic
