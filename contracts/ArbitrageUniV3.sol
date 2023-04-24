@@ -1,7 +1,6 @@
 pragma solidity ^0.8.0;
 
 import '@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol';
-import '@uniswap/v3-periphery/contracts/interfaces/IQuoter.sol';
 import '@uniswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol';
 import '@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol';
 import './interface/IArbitrage.sol';
@@ -9,7 +8,7 @@ import './extern/Manageable.sol';
 import "./extern/SafeMath.sol";
 import "./extern/SafeERC20.sol";
 
-contract ArbitrageUniV3 is ArbitrageInterface, Manageable{
+contract ArbitrageUniV3 is IArbitrage, Manageable{
     using SafeMath for uint256;
     using SafeERC20 for IERC20;
     address public  router;
@@ -17,7 +16,7 @@ contract ArbitrageUniV3 is ArbitrageInterface, Manageable{
     mapping(address => uint256) public shares;
     uint256 public close_stock;
     uint256 public org_stock;
-    address public stock_index;
+    uint256 public stock_index;
 
     event Deposit(address indexed user, uint256 amount);
     event Withdraw(address indexed user, uint256 amount);
@@ -27,7 +26,7 @@ contract ArbitrageUniV3 is ArbitrageInterface, Manageable{
         address _manager,
         address _router,
         address _pool,
-        uint _stock_index
+        uint256 _stock_index
     )Ownable(msg.sender)
       Manageable(_manager)
     {
@@ -47,7 +46,7 @@ contract ArbitrageUniV3 is ArbitrageInterface, Manageable{
 
     function getStock() private view returns(address stock){
         address stock = IUniswapV3Pool(pool).token0();
-        if (_stock_index == 1 )
+        if (stock_index == 1 )
         {
             stock = IUniswapV3Pool(pool).token1();
         }   
@@ -56,37 +55,38 @@ contract ArbitrageUniV3 is ArbitrageInterface, Manageable{
 
     function getMoney() private view returns(address money){
         address money = IUniswapV3Pool(pool).token1();
-        if (_stock_index == 1 )
+        if (stock_index == 1 )
         {
             money = IUniswapV3Pool(pool).token0();
         }   
         return money;
     } 
 
-
-    function deposit(uint256 amount) external override  returns (uint amount){
+    function deposit(uint256 amount) external override payable returns (uint256 depositAmount) {
         shares[msg.sender] += amount;
         org_stock += msg.value;
         address stock = getStock();
-        IERC20(stock).approve(address(this), amountIn);
-        IERC20(stock).safeTransferFrom(msg.sender, address(this), burn_amount);
+        IERC20(stock).approve(address(this), amount);
+        IERC20(stock).safeTransferFrom(msg.sender, address(this), amount);
         emit Deposit(msg.sender, amount);
         return amount;
     }
 
-    function withdraw() external {
-        share = shares[msg.sender];
+    function withdraw() external override returns (uint256 withdrawAmount){
+        uint256 share = shares[msg.sender];
         require(share > 0, 'Arbitrage: insufficient balance');
         uint256 amount = share.mul(close_stock).div(org_stock);
         address stock = getStock();
         IERC20(stock).safeTransfer(msg.sender, amount);
         emit Withdraw(msg.sender, amount);
+
+        return amount;
     }
 
     function openPostion(
-        int256 amountOutMinimum,
+        uint256 amountOutMinimum,
         uint160 sqrtPriceLimitX96
-    ) external onlyManager {
+    ) external override returns (uint256 amount) {
         
         require(amountOutMinimum > 0, "Invalid minimum output amount");
         address stock = getStock();
@@ -94,7 +94,7 @@ contract ArbitrageUniV3 is ArbitrageInterface, Manageable{
         uint24 fee = IUniswapV3Pool(pool).fee();
 
         // Perform swap
-        IUniswapV3Router(router).exactInputSingle(
+        ISwapRouter(router).exactInputSingle(
             ISwapRouter.ExactInputSingleParams(
                 stock,
                 money,
@@ -109,23 +109,23 @@ contract ArbitrageUniV3 is ArbitrageInterface, Manageable{
     }
 
     function closePostion(
-        int256 amountOutMinimum,
+        uint256 amountOutMinimum,
         uint160 sqrtPriceLimitX96
-    ) external onlyManager {
+    ) external override returns (uint256 amount) {
         
         require(amountOutMinimum > 0, "Invalid minimum output amount");
         address stock = getStock();
         address money = getStock();
         uint24 fee = IUniswapV3Pool(pool).fee();
         // Perform swap
-        IUniswapV3Router(router).exactInputSingle(
+        ISwapRouter(router).exactInputSingle(
             ISwapRouter.ExactInputSingleParams(
                 money,
                 stock,
                 fee,
                 address(this),
                 block.timestamp,
-                uint256(IERC20(money).balance(address(this))),
+                uint256(IERC20(money).balanceOf(address(this))),
                 uint256(amountOutMinimum),
                 sqrtPriceLimitX96
             )

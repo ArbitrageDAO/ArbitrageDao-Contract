@@ -17,11 +17,11 @@ contract ArbitrageDaoFactory {
         address[] all_dao;
     }
 
-    mapping(address => Arbitrage) public arbitrage_info;
+    mapping(address => Arbitrage) internal  arbitrage_info;
 
-    mapping(address => DAO) public dao_info;
+    mapping(address => DAO) internal dao_info;
 
-    mapping(address => address) public arbitrageddao_owner;
+    mapping(address => address) internal arbitrageddao_owner;
 
     constructor(address _router)
     {
@@ -31,8 +31,8 @@ contract ArbitrageDaoFactory {
     function deployUniV3(address _pool, uint _stock_index, address dao) public returns (address) {
         address arbitrage;
         arbitrage = address(new ArbitrageUniV3(dao, router, _pool, _stock_index));
-        arbitrageddao_owner[arbitrageddao_owner] = msg.sender;
-        Arbitrage user_arbitrage =  arbitrage_info[msg.sender];
+        arbitrageddao_owner[arbitrage] = msg.sender;
+        Arbitrage storage user_arbitrage =  arbitrage_info[msg.sender];
         user_arbitrage.all_arbitrage.push(arbitrage);
         arbitrage_info[msg.sender] = user_arbitrage;
         return arbitrage;

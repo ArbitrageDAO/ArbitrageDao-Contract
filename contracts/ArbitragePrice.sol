@@ -1,10 +1,10 @@
 pragma solidity ^0.8.0;
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol";
-import "@uniswap/v3-periphery/contracts/interfaces/ISwapQuoter.sol";
 import './extern/Manageable.sol';
+import './interface/IArbitrageOracle.sol';
 
-contract ArbitragePrice is ArbitragePriceInterface, Ownable {
+contract ArbitragePrice is IArbitrageOracle, Ownable {
     struct Pool {
         address tokenA;
         address tokenB;
@@ -26,22 +26,18 @@ contract ArbitragePrice is ArbitragePriceInterface, Ownable {
         require(strategy != address(0), "ArbitragePrice: strategy cann't be zero address");
         require(tokenA != address(0), "ArbitragePrice: tokenA cann't be zero address");
         require(tokenB != address(0), "ArbitragePrice: tokenB cann't be zero address");
-        Pool new_pool;
+        Pool storage new_pool;
         new_pool.tokenA = tokenA;
         new_pool.tokenB = tokenB;
         prices[strategy] = new_pool;
     }
 
-
     function getLinkPrice(address strategy) external override returns(uint256) {
         AggregatorV3Interface priceFeed = AggregatorV3Interface(aggregator);
-
     }
 
     function getUniV3Price(address strategy) external override returns(uint256) {
 
     }
-
-
    
 }

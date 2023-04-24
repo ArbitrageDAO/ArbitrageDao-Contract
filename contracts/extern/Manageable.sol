@@ -1,6 +1,4 @@
-// SPDX-License-Identifier: GPL-3.0
-
-pragma solidity ^0.7.6;
+pragma solidity ^0.8.0;
 /**
  * @title Abstract manageable contract that can be inherited by other contracts
  * @notice Contract module based on Ownable which provides a basic access control mechanism, where

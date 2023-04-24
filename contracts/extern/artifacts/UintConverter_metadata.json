@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "int56[]",
+						"name": "intArray",
+						"type": "int56[]"
+					}
+				],
+				"name": "convertToInt",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "result",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint160",
+						"name": "value",
+						"type": "uint160"
+					}
+				],
+				"name": "toUint32Array",
+				"outputs": [
+					{
+						"internalType": "uint32[]",
+						"name": "",
+						"type": "uint32[]"
+					}
+				],
+				"stateMutability": "pure",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ArbitrageDao-Contract/contracts/extern/UintConverter.sol": "UintConverter"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ArbitrageDao-Contract/contracts/extern/UintConverter.sol": {
+			"keccak256": "0x1e4f1ccc49c1ebf540168aa8b9ce63e12e10f266a5b657a74897dd7b3cd9f683",
+			"urls": [
+				"bzz-raw://e4e68742c51114be2a007fb2f4e806d7f52aa0684ef6e3caa091f5340de78bcc",
+				"dweb:/ipfs/QmPQwxbDKLVFUoAArHQotwdivGTEMav2JjBSdpPaacywdL"
+			]
+		}
+	},
+	"version": 1
+}

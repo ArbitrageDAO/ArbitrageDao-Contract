@@ -1,0 +1,83 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "strategy",
+						"type": "address"
+					}
+				],
+				"name": "getLinkPrice",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "strategy",
+						"type": "address"
+					}
+				],
+				"name": "getUniV3Price",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ArbitrageDao-Contract/contracts/interface/IArbitrageOracle.sol": "IArbitrageOracle"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ArbitrageDao-Contract/contracts/interface/IArbitrageOracle.sol": {
+			"keccak256": "0x62a9346f9dd5ca48902b969c28d87153ec01c07c2c7d247916556d3c087449fc",
+			"urls": [
+				"bzz-raw://d16329f21ef2b18e7a70973980bb2c4d580a7b2179106f0f19b0211df13976b3",
+				"dweb:/ipfs/QmYWLUC7fQMjQVvLLeNFhvQjbpwppEMj4hBVGvUMd9mJ4K"
+			]
+		}
+	},
+	"version": 1
+}

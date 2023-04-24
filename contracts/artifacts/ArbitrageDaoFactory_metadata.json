@@ -1,0 +1,261 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_router",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_pool",
+						"type": "address"
+					},
+					{
+						"internalType": "uint256",
+						"name": "_stock_index",
+						"type": "uint256"
+					},
+					{
+						"internalType": "address",
+						"name": "dao",
+						"type": "address"
+					}
+				],
+				"name": "deployUniV3",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "price_oracle",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "router",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ArbitrageDao-Contract/contracts/ArbitrageFactory.sol": "ArbitrageDaoFactory"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@uniswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol": {
+			"keccak256": "0xcc3d0c93fc9ac0febbe09f941b465b57f750bcf3b48432da0b97dc289cfdc489",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://b9379ad954680c44a0bc523b314ae4c4da735f9fe1d02aa56ea5bdba6f1136f2",
+				"dweb:/ipfs/QmZXdgQNXKAckrXWz9R3mc47F1fvDvr28a2ewJrwNAw71B"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol": {
+			"keccak256": "0xfe6113d518466cd6652c85b111e01f33eb62157f49ae5ed7d5a3947a2044adb1",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://1c42b9e6f5902ac38dd43e25750939baa7e0c1425dc75afd717c4412731065d5",
+				"dweb:/ipfs/QmWaoacnzsucTvBME2o7YgZBZMhaHv7fkj83htHMVWJKWh"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/callback/IUniswapV3SwapCallback.sol": {
+			"keccak256": "0x3f485fb1a44e8fbeadefb5da07d66edab3cfe809f0ac4074b1e54e3eb3c4cf69",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://095ce0626b41318c772b3ebf19d548282607f6a8f3d6c41c13edfbd5370c8652",
+				"dweb:/ipfs/QmVDZfJJ89UUCE1hMyzqpkZAtQ8jUsBgZNE5AMRG7RzRFS"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolActions.sol": {
+			"keccak256": "0x9453dd0e7442188667d01d9b65de3f1e14e9511ff3e303179a15f6fc267f7634",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://982f4328f956c3e60e67501e759eb292ac487f76460c774c50e9ae4fcc92aae5",
+				"dweb:/ipfs/QmRnzEDsaqtd9PJEVcgQi7p5aV5pMSvRUoGZJAdwFUJxgZ"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolDerivedState.sol": {
+			"keccak256": "0xe603ac5b17ecdee73ba2b27efdf386c257a19c14206e87eee77e2017b742d9e5",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://8febc9bdb399a4d94bb89f5377732652e2400e4a8dee808201ade6848f9004e7",
+				"dweb:/ipfs/QmaKDqYYFU4d2W2iN77aDHptfbFmYZRrMYXHeGpJmM8C1c"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolEvents.sol": {
+			"keccak256": "0x8071514d0fe5d17d6fbd31c191cdfb703031c24e0ece3621d88ab10e871375cd",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://d0b571930cc7488b1d546a7e9cea7c52d8b3c4e207da657ed0e0db7343b8cd03",
+				"dweb:/ipfs/QmaGK6vVwB95QSTR1XMYvrh7ivYAYZxi3fD7v6VMA4jZ39"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolImmutables.sol": {
+			"keccak256": "0xf6e5d2cd1139c4c276bdbc8e1d2b256e456c866a91f1b868da265c6d2685c3f7",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://b99c8c9ae8e27ee6559e5866bea82cbc9ffc8247f8d15b7422a4deb287d4d047",
+				"dweb:/ipfs/QmfL8gaqt3ffAnm6nVj5ksuNpLygXuL3xq5VBqrkwC2JJ3"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolOwnerActions.sol": {
+			"keccak256": "0x759b78a2918af9e99e246dc3af084f654e48ef32bb4e4cb8a966aa3dcaece235",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://64144fb96e1c7fdba87305acadb98a198d26a3d46c097cb3a666e567f6f29735",
+				"dweb:/ipfs/QmUnWVwN9FKB9uV5Pr8YfLpWZnYM2DENnRMaadZ492JS9u"
+			]
+		},
+		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolState.sol": {
+			"keccak256": "0x852dc1f5df7dcf7f11e7bb3eed79f0cea72ad4b25f6a9d2c35aafb48925fd49f",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://ed63907c38ff36b0e22bc9ffc53e791ea74f0d4f0e7c257fdfb5aaf8825b1f0f",
+				"dweb:/ipfs/QmSQrckghEjs6HVsA5GVgpNpZWvTXMY5eQLF7cN6deFeEg"
+			]
+		},
+		"@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol": {
+			"keccak256": "0x9bfaf1feb32814623e627ab70f2409760b15d95f1f9b058e2b3399a8bb732975",
+			"license": "GPL-2.0-or-later",
+			"urls": [
+				"bzz-raw://a8a2c3e55965b61bcd91993d8e1d5d34b8b8a63e0fdfce87a85f6af92526fd53",
+				"dweb:/ipfs/QmQj2CSCSwqDSU4KMNWxGsN2336Cy64WgpV1X1EHXNZWxM"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/ArbitrageFactory.sol": {
+			"keccak256": "0x1d9f90783969ce59f95ce54bdc8ddbf345976fb18f799e65d55167c35215adb8",
+			"urls": [
+				"bzz-raw://81c1e13752a2ed961784c2cded80debb19d31735ef50f126c23bfd76b42b1bae",
+				"dweb:/ipfs/QmRJFkLMm8y1JTfJ1WBhxgidMi7FFpyiE7wo1EuJDjAgYP"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/ArbitrageUniV3.sol": {
+			"keccak256": "0x5b3929c4586147acdf0f4907c36a25178d582fb281d6159a694fa9ed11039af4",
+			"urls": [
+				"bzz-raw://ba9063931c2c882515c7271428b07849e129fc6e7e932e2c1eff3a4daff53ad4",
+				"dweb:/ipfs/QmdKWXyvq3LuPy8iY5kuMYx9dVSeyryofAhkRU7vqqJwH3"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/Government.sol": {
+			"keccak256": "0x3ad5836f3a56f05173890ccb1b1ac2f69f53bc9b32ea24fcdcb54f3cae1b437b",
+			"urls": [
+				"bzz-raw://6903338f78342fa1fff44459c06a16ad114ee2b4959f67fc5e64bb8c4267b471",
+				"dweb:/ipfs/QmSJDxAmn7z6eoaiYxc1PGjRcz5jmZ8AcacNLJfb9zounE"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/extern/Address.sol": {
+			"keccak256": "0x8b4ef6a367e25860ae20d022aa1dd61e44aeebfdce53e7b3b1afe9bfb647c57d",
+			"urls": [
+				"bzz-raw://888100668c5b409060b7574bba0f050b01c120a16e9c1c3174bb50e26a141398",
+				"dweb:/ipfs/QmSqmRsmeZ1MFkKqTroQLEjgkbEZnunfpW6a9UxHyJ36PK"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/extern/Manageable.sol": {
+			"keccak256": "0x7e0329b4e8e4267f5c2bd57920b7cf4ca19afb17f1ef80806e6ec59657b00f79",
+			"urls": [
+				"bzz-raw://1d1f8b70220dd693f97314c10f13a5979984929040b87c8aba1136783e93de4e",
+				"dweb:/ipfs/QmNYmRYUDvVUo8rs55hsUgod8NyVfmtFBVHvDfifcpAcXy"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/extern/SafeERC20.sol": {
+			"keccak256": "0x8fe081afe0f3112ca7044ec5000c3c0e4c9d5a9b9dff4f23fb16fd405b8bedf0",
+			"urls": [
+				"bzz-raw://e12a3030cf884f83bf5de031762a7d43a4f2b6a8430a15c713716327506c7433",
+				"dweb:/ipfs/QmWHgnJPHX43UVPqxoe5hwRzUBcx8NcHjXZfoN4kEwEkZe"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/extern/SafeMath.sol": {
+			"keccak256": "0x286df00adb9fec9880b753d0b8161a35046afc26e8b38d88ddfc12d36484c1a0",
+			"urls": [
+				"bzz-raw://96bed571a875d6aa3bd9c6d32f82cb36d1c3487775a214cad044a9d30f77d753",
+				"dweb:/ipfs/Qmeg4pPAypi1csjhzd9eDgMbT4gpWwD14qpXv1FHUWtcKF"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/interface/IArbitrage.sol": {
+			"keccak256": "0x5caef556a7c4ab75f0fd3c5919e8b493be8b55f5bc24a080c8f450d307eecee8",
+			"urls": [
+				"bzz-raw://ef1c969b1d23ab84b12eea3a0141606d431e82cffb5b563ff0a7b68a81466849",
+				"dweb:/ipfs/QmR54vHuMiZo55gnh9e8ahKZquhAgoz5MtrN5wcQBTUsAu"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/interface/IERC20.sol": {
+			"keccak256": "0x9c6a7d0f5a146b1d6a90d9cf6ceff1b228dbb8feb660c54b71b04d1e7a4cc72d",
+			"urls": [
+				"bzz-raw://a9ced443da8b08e7e870710ac52d0070127de7540a45e9b47d4e623eaa9b33b4",
+				"dweb:/ipfs/QmUp1mp6Bcz4akUv1eQCVaqW1RCoCbJChRjdMQtMN82CcL"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/interface/IERC20Permit.sol": {
+			"keccak256": "0xc7d20d1cb90fcc03f01fe94303d0212cdb1795f2b981e05033d49870e1459f28",
+			"urls": [
+				"bzz-raw://ecf4c1c22d355b08b600fc7045fb51d7c2422b4602096cdf9bc1f5782c21a30e",
+				"dweb:/ipfs/QmUyzCJk3ZnVHrM9GQQKAb8Q6exbh6m1DhG4TzHtcHcmtf"
+			]
+		},
+		"ArbitrageDao-Contract/contracts/interface/IStrategy.sol": {
+			"keccak256": "0x9de5cc70ae966bbf186cf229cef031e38d7f22a7f18fcc5daeae1a9d0824ac9d",
+			"urls": [
+				"bzz-raw://304c2d8fd378a86044a90c75283db7229b5a397ec827fcaab6a214252f340a12",
+				"dweb:/ipfs/QmTj4UXAi54wu6xxt8z8kUoyMuSLZUqYkv7oFXVRZpwhEP"
+			]
+		}
+	},
+	"version": 1
+}

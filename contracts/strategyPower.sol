@@ -1,5 +1,5 @@
 pragma solidity ^0.8.0;
-import './interface/IStrategyPowerInterface.sol';
+import './interface/IStrategyPower.sol';
 import './extern/Manageable.sol';
 contract StrategyPower is Manageable {
     mapping(address=>uint256) public address_power;
@@ -7,7 +7,7 @@ contract StrategyPower is Manageable {
     mapping(uint256=>mapping(address=>uint256)) public address_proposal_power;
     uint256 public pass = 5000;
     uint256 public total_power;
-    constructor(address owner, address manager) Ownable(onwer) Manageable(manager){
+    constructor(address owner, address manager) Ownable(owner) Manageable(manager){
         
     }
 

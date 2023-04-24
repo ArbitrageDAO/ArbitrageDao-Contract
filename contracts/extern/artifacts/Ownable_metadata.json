@@ -1,0 +1,188 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "pendingOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipOffered",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "previousOwner",
+						"type": "address"
+					},
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "newOwner",
+						"type": "address"
+					}
+				],
+				"name": "OwnershipTransferred",
+				"type": "event"
+			},
+			{
+				"inputs": [],
+				"name": "claimOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "owner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "pendingOwner",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "renounceOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_newOwner",
+						"type": "address"
+					}
+				],
+				"name": "transferOwnership",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"events": {
+				"OwnershipOffered(address)": {
+					"details": "Emitted when `_pendingOwner` has been changed.",
+					"params": {
+						"pendingOwner": "new `_pendingOwner` address."
+					}
+				},
+				"OwnershipTransferred(address,address)": {
+					"details": "Emitted when `_owner` has been changed.",
+					"params": {
+						"newOwner": "new `_owner` address.",
+						"previousOwner": "previous `_owner` address."
+					}
+				}
+			},
+			"kind": "dev",
+			"methods": {
+				"claimOwnership()": {
+					"details": "This function is only callable by the `_pendingOwner`."
+				},
+				"constructor": {
+					"params": {
+						"_initialOwner": "Initial owner of the contract."
+					}
+				},
+				"pendingOwner()": {
+					"returns": {
+						"_0": "Current `_pendingOwner` address."
+					}
+				},
+				"renounceOwnership()": {
+					"details": "Leaves the contract without owner. It will not be possible to call `onlyOwner` functions anymore. Can only be called by the current owner. NOTE: Renouncing ownership will leave the contract without an owner, thereby removing any functionality that is only available to the owner."
+				},
+				"transferOwnership(address)": {
+					"params": {
+						"_newOwner": "Address to transfer ownership to."
+					}
+				}
+			},
+			"title": "Abstract ownable contract that can be inherited by other contracts",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {
+				"claimOwnership()": {
+					"notice": "Allows the `_pendingOwner` address to finalize the transfer."
+				},
+				"constructor": {
+					"notice": "Initializes the contract setting `_initialOwner` as the initial owner."
+				},
+				"owner()": {
+					"notice": "Returns the address of the current owner."
+				},
+				"pendingOwner()": {
+					"notice": "Gets current `_pendingOwner`."
+				},
+				"renounceOwnership()": {
+					"notice": "Renounce ownership of the contract."
+				},
+				"transferOwnership(address)": {
+					"notice": "Allows current owner to set the `_pendingOwner` address."
+				}
+			},
+			"notice": "Contract module which provides a basic access control mechanism, where there is an account (an owner) that can be granted exclusive access to specific functions. The `owner` is first set by passing the address of the `initialOwner` to the Ownable constructor. The owner account can be transferred through a two steps process:      1. The current `owner` calls {transferOwnership} to set a `pendingOwner`      2. The `pendingOwner` calls {claimOwnership} to accept the ownership transfer This module is used through inheritance. It will make available the modifier `onlyOwner`, which can be applied to your functions to restrict their use to the owner.",
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ArbitrageDao-Contract/contracts/extern/Manageable.sol": "Ownable"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ArbitrageDao-Contract/contracts/extern/Manageable.sol": {
+			"keccak256": "0x7e0329b4e8e4267f5c2bd57920b7cf4ca19afb17f1ef80806e6ec59657b00f79",
+			"urls": [
+				"bzz-raw://1d1f8b70220dd693f97314c10f13a5979984929040b87c8aba1136783e93de4e",
+				"dweb:/ipfs/QmNYmRYUDvVUo8rs55hsUgod8NyVfmtFBVHvDfifcpAcXy"
+			]
+		}
+	},
+	"version": 1
+}

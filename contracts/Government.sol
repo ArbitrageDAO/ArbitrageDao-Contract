@@ -1,6 +1,6 @@
 pragma solidity ^0.8.0;
 import './interface/IArbitrage.sol';
-import './interface/StrategyInterface.sol';
+import './interface/IStrategy.sol';
 import './extern/Manageable.sol';
 contract GovDao is Ownable {
     address public arbitrage;
@@ -15,22 +15,22 @@ contract GovDao is Ownable {
     }
 
     function openPostion(
-        int256 amountOutMinimum,
+        uint256 amountOutMinimum,
         uint160 sqrtPriceLimitX96
     ) external 
     {
-        StrategyInterface(strategy).active(propurse);
-        ArbitrageInterface(arbitrage).openPostion(amountOutMinimum, sqrtPriceLimitX96);
+        IStrategy(strategy).active(propurse);
+        IArbitrage(arbitrage).openPostion(amountOutMinimum, sqrtPriceLimitX96);
         propurse = propurse+1;
     }
 
     function closePostion(
-        int256 amountOutMinimum,
+        uint256 amountOutMinimum,
         uint160 sqrtPriceLimitX96
     ) external 
     {
-        StrategyInterface(strategy).active(propurse);
-        ArbitrageInterface(arbitrage).closePostion(amountOutMinimum, sqrtPriceLimitX96);
+        IStrategy(strategy).active(propurse);
+        IArbitrage(arbitrage).closePostion(amountOutMinimum, sqrtPriceLimitX96);
         propurse = propurse+1;
     }
 

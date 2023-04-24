@@ -1,30 +1,31 @@
 pragma solidity ^0.8.0;
-import './interface/IStrategyInterface.sol';
-import './interface/IStrategyPowerInterface.sol';
+import './interface/IStrategy.sol';
+import './interface/IStrategyPower.sol';
 import './extern/Manageable.sol';
-contract Strategy is Ownable {
-    int public module;
+abstract contract Strategy is Ownable {
+    uint256 public module;
     address public power;
     uint256 public price;
     bool public long;
     address oracle;
-    constructor(int _module, address owner)Ownable(onwer){
+
+    constructor(uint256 _module, address owner) {
         module = _module;
     }
 
 
-    function setPower(address _power) external onlyOnwer {
+    function setPower(address _power) external onlyOwner {
         power = _power;
     }
 
-    function setPrice(uint _price, bool _long, address _oracle) external onlyOnwer {
+    function setPrice(uint _price, bool _long, address _oracle) external onlyOwner {
         price = _price;
         long = _long;
         oracle = _oracle;
     }
 
 
-    function active(int  proposal) external override returns (bool){
+    function active(uint proposal) external returns (bool){
         if (module == 0)
         {
             require(msg.sender == owner(),"StrategyPower: module one must be owner");
@@ -32,14 +33,15 @@ contract Strategy is Ownable {
         
         if (module == 1)
         {
-            StrategyPowerInterface(power).resolve();
+            IStrategyPower(power).resolve(proposal);
         }
 
         if (module == 2)
         {
-            uint link_price;//= orcle.getPrice(address(this));
-            require(link_price >= price && long=true,"StrategyPower: link price must bigger than price in long" ); 
-            require(link_price <= price && long=false,"StrategyPower: link price must smaller than price in short" );     
+            //uint link_price = orcle.getPrice(address(this));
+            uint link_price;
+            require(link_price >= price && long==true,"StrategyPower: link price must bigger than price in long" ); 
+            require(link_price <= price && long==false,"StrategyPower: link price must smaller than price in short" );     
         }
         return true;
     }

@@ -1,0 +1,64 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "int256",
+						"name": "proposal",
+						"type": "int256"
+					}
+				],
+				"name": "active",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ArbitrageDao-Contract/contracts/interface/IStrategy.sol": "StrategyInterface"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ArbitrageDao-Contract/contracts/interface/IStrategy.sol": {
+			"keccak256": "0xd23d5da35b16aaeac1a88562283b3643f938b93e091093f2cea390fb7f3ba9fb",
+			"urls": [
+				"bzz-raw://320cd46c138fc70c9f28836b11fadc65e09af4cfc9ecd89e054413a9e9790f10",
+				"dweb:/ipfs/QmVSuYgsuojDtcPAWGjtbXZdNnBtYCR66Ry25Stvudab4t"
+			]
+		}
+	},
+	"version": 1
+}

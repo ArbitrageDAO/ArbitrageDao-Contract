@@ -1,0 +1,45 @@
+{
+	"compiler": {
+		"version": "0.8.0+commit.c7dfd78e"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [],
+		"devdoc": {
+			"details": "Collection of functions related to the address type",
+			"kind": "dev",
+			"methods": {},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"ArbitrageDao-Contract/contracts/extern/Address.sol": "Address"
+		},
+		"evmVersion": "istanbul",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"ArbitrageDao-Contract/contracts/extern/Address.sol": {
+			"keccak256": "0x8b4ef6a367e25860ae20d022aa1dd61e44aeebfdce53e7b3b1afe9bfb647c57d",
+			"urls": [
+				"bzz-raw://888100668c5b409060b7574bba0f050b01c120a16e9c1c3174bb50e26a141398",
+				"dweb:/ipfs/QmSqmRsmeZ1MFkKqTroQLEjgkbEZnunfpW6a9UxHyJ36PK"
+			]
+		}
+	},
+	"version": 1
+}
