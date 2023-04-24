@@ -11,6 +11,7 @@ contract ArbitragePrice is IArbitrageOracle, Ownable {
     struct Pool {
         address tokenA;
         address tokenB;
+        address aggregator;
     }
      // UNISWAP V3 的 SwapRouter 
     address public constant uniswapV3SwapRouter = 0xE592427A0AEce92De3Edee1F18E0157C05861564;
@@ -36,7 +37,8 @@ contract ArbitragePrice is IArbitrageOracle, Ownable {
     }
 
     function getLinkPrice(address strategy) external override returns(uint256) {
-        AggregatorV3Interface priceFeed = AggregatorV3Interface(aggregator);
+        Pool memory pool = prices[strategy];
+        AggregatorV3Interface priceFeed = AggregatorV3Interface(pool.aggregator);
         (uint80 price, int256 timestamp, , , ) = priceFeed.latestRoundData();
         return uint256(price);
     }
