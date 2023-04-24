@@ -3,6 +3,8 @@ interface IArbitrageOracle {
     function getLinkPrice(address strategy) external returns(uint256);
 
     function getUniV3Price(address strategy) external returns(uint256);
+
+    function getPancakeV3Price(address strategy) external returns(uint256);
 }
 
         
