@@ -7,12 +7,14 @@ dependencies:
   - OpenZeppelin/openzeppelin-contracts@4.3.2
   - UniSwap/v3-core@1.0.0
   - UniSwap/v3-periphery@1.0.0
+  - ChainLink/chainlink@1.1
 compiler:
   solc:
     remappings:
       - "@openzeppelin=OpenZeppelin/openzeppelin-contracts@4.3.2"
       - "@uniswap/v3-core=UniSwap/v3-core@1.0.0"
       - "@uniswap/v3-periphery=UniSwap/v3-periphery@1.0.0"
+      - "@chainlink=ChainLink/chainlink@1.1"
 # automatically fetch contract sources from Etherscan
 autofetch_sources: True
 # Uncomment to use the .env file
@@ -26,13 +28,12 @@ networks:
     update_interval: 60
     verify: False
   eth-dev:
-    BPT: "0x3a7C725C9852F03BFCD0741490A9D4738Cd4CbE8"
-    factory: "0x3a7C725C9852F03BFCD0741490A9D4738Cd4CbE8"
-    minterAmount: 100000000000000000
+    module: 0
+    router: "0x3a7C725C9852F03BFCD0741490A9D4738Cd4CbE8"
+    pool: "0x1C2f71a40E7448Dd578C752b570D676284004048"
+    stock_index: 0
     verify: False
     save: "eth_dev.json"
-    BTC: "0x1C2f71a40E7448Dd578C752b570D676284004048"
-    USDC: "0x9191806b17D80546013bB6dAB6e9709e778Bb130"
     from_key: "***"
     test_key: "***"
   polygon-weshare:
