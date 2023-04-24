@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -38,9 +38,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/interface/IStrategy.sol": "IStrategy"
+			"contracts/interface/IStrategy.sol": "IStrategy"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -52,7 +52,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/interface/IStrategy.sol": {
+		"contracts/interface/IStrategy.sol": {
 			"keccak256": "0x9de5cc70ae966bbf186cf229cef031e38d7f22a7f18fcc5daeae1a9d0824ac9d",
 			"urls": [
 				"bzz-raw://304c2d8fd378a86044a90c75283db7229b5a397ec827fcaab6a214252f340a12",

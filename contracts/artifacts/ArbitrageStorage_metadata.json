@@ -1,115 +1,10 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenA",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "tokenB",
-						"type": "address"
-					}
-				],
-				"name": "getPrice",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "",
-						"type": "address"
-					}
-				],
-				"name": "prices",
-				"outputs": [
-					{
-						"internalType": "uint256",
-						"name": "price",
-						"type": "uint256"
-					},
-					{
-						"internalType": "uint256",
-						"name": "timestamp",
-						"type": "uint256"
-					}
-				],
-				"stateMutability": "view",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenA",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "tokenB",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "aggregator",
-						"type": "address"
-					}
-				],
-				"name": "setChainlinkPrice",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			},
-			{
-				"inputs": [
-					{
-						"internalType": "address",
-						"name": "tokenA",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "tokenB",
-						"type": "address"
-					},
-					{
-						"internalType": "address",
-						"name": "dexContractAddress",
-						"type": "address"
-					}
-				],
-				"name": "setPrice",
-				"outputs": [],
-				"stateMutability": "nonpayable",
-				"type": "function"
-			}
-		],
+		"abi": [],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -123,9 +18,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/ArbitrageStorage.sol": "ArbitrageStorage"
+			"contracts/ArbitrageStorage.sol": "ArbitrageStorage"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -137,106 +32,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol": {
-			"keccak256": "0x6e6e4b0835904509406b070ee173b5bc8f677c19421b76be38aea3b1b3d30846",
-			"license": "MIT",
+		"contracts/ArbitrageStorage.sol": {
+			"keccak256": "0x62806fbe01c96255040e2a40faa9201aef34fdfdb35e04a3347761071109026e",
 			"urls": [
-				"bzz-raw://b3beaa37ee61e4ab615e250fbf01601ae481de843fd0ef55e6b44fd9d5fff8a7",
-				"dweb:/ipfs/QmeZUVwd26LzK4Mfp8Zba5JbQNkZFfTzFu1A6FVMMZDg9c"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/IUniswapV3Factory.sol": {
-			"keccak256": "0xcc3d0c93fc9ac0febbe09f941b465b57f750bcf3b48432da0b97dc289cfdc489",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://b9379ad954680c44a0bc523b314ae4c4da735f9fe1d02aa56ea5bdba6f1136f2",
-				"dweb:/ipfs/QmZXdgQNXKAckrXWz9R3mc47F1fvDvr28a2ewJrwNAw71B"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/IUniswapV3Pool.sol": {
-			"keccak256": "0xfe6113d518466cd6652c85b111e01f33eb62157f49ae5ed7d5a3947a2044adb1",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://1c42b9e6f5902ac38dd43e25750939baa7e0c1425dc75afd717c4412731065d5",
-				"dweb:/ipfs/QmWaoacnzsucTvBME2o7YgZBZMhaHv7fkj83htHMVWJKWh"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/callback/IUniswapV3SwapCallback.sol": {
-			"keccak256": "0x3f485fb1a44e8fbeadefb5da07d66edab3cfe809f0ac4074b1e54e3eb3c4cf69",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://095ce0626b41318c772b3ebf19d548282607f6a8f3d6c41c13edfbd5370c8652",
-				"dweb:/ipfs/QmVDZfJJ89UUCE1hMyzqpkZAtQ8jUsBgZNE5AMRG7RzRFS"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolActions.sol": {
-			"keccak256": "0x9453dd0e7442188667d01d9b65de3f1e14e9511ff3e303179a15f6fc267f7634",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://982f4328f956c3e60e67501e759eb292ac487f76460c774c50e9ae4fcc92aae5",
-				"dweb:/ipfs/QmRnzEDsaqtd9PJEVcgQi7p5aV5pMSvRUoGZJAdwFUJxgZ"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolDerivedState.sol": {
-			"keccak256": "0xe603ac5b17ecdee73ba2b27efdf386c257a19c14206e87eee77e2017b742d9e5",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://8febc9bdb399a4d94bb89f5377732652e2400e4a8dee808201ade6848f9004e7",
-				"dweb:/ipfs/QmaKDqYYFU4d2W2iN77aDHptfbFmYZRrMYXHeGpJmM8C1c"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolEvents.sol": {
-			"keccak256": "0x8071514d0fe5d17d6fbd31c191cdfb703031c24e0ece3621d88ab10e871375cd",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://d0b571930cc7488b1d546a7e9cea7c52d8b3c4e207da657ed0e0db7343b8cd03",
-				"dweb:/ipfs/QmaGK6vVwB95QSTR1XMYvrh7ivYAYZxi3fD7v6VMA4jZ39"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolImmutables.sol": {
-			"keccak256": "0xf6e5d2cd1139c4c276bdbc8e1d2b256e456c866a91f1b868da265c6d2685c3f7",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://b99c8c9ae8e27ee6559e5866bea82cbc9ffc8247f8d15b7422a4deb287d4d047",
-				"dweb:/ipfs/QmfL8gaqt3ffAnm6nVj5ksuNpLygXuL3xq5VBqrkwC2JJ3"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolOwnerActions.sol": {
-			"keccak256": "0x759b78a2918af9e99e246dc3af084f654e48ef32bb4e4cb8a966aa3dcaece235",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://64144fb96e1c7fdba87305acadb98a198d26a3d46c097cb3a666e567f6f29735",
-				"dweb:/ipfs/QmUnWVwN9FKB9uV5Pr8YfLpWZnYM2DENnRMaadZ492JS9u"
-			]
-		},
-		"@uniswap/v3-core/contracts/interfaces/pool/IUniswapV3PoolState.sol": {
-			"keccak256": "0x852dc1f5df7dcf7f11e7bb3eed79f0cea72ad4b25f6a9d2c35aafb48925fd49f",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://ed63907c38ff36b0e22bc9ffc53e791ea74f0d4f0e7c257fdfb5aaf8825b1f0f",
-				"dweb:/ipfs/QmSQrckghEjs6HVsA5GVgpNpZWvTXMY5eQLF7cN6deFeEg"
-			]
-		},
-		"@uniswap/v3-periphery/contracts/interfaces/ISwapRouter.sol": {
-			"keccak256": "0x9bfaf1feb32814623e627ab70f2409760b15d95f1f9b058e2b3399a8bb732975",
-			"license": "GPL-2.0-or-later",
-			"urls": [
-				"bzz-raw://a8a2c3e55965b61bcd91993d8e1d5d34b8b8a63e0fdfce87a85f6af92526fd53",
-				"dweb:/ipfs/QmQj2CSCSwqDSU4KMNWxGsN2336Cy64WgpV1X1EHXNZWxM"
-			]
-		},
-		"ArbitrageDao-Contract/contracts/ArbitrageStorage.sol": {
-			"keccak256": "0x512701c8cc9d75f9ec5af72b01db4f4ab3c747cd2675de8f24ba4e0df6ab7d79",
-			"urls": [
-				"bzz-raw://e073a55e0c180f595a46a5f2e97195d9b6265d451180cb5ed2bb91d4d0a85950",
-				"dweb:/ipfs/QmTHCgo78AfWdJo7FxfpbCFQ1YhK9XV8mfCAxKWWvQbZ48"
-			]
-		},
-		"ArbitrageDao-Contract/contracts/extern/UintConverter.sol": {
-			"keccak256": "0x1e4f1ccc49c1ebf540168aa8b9ce63e12e10f266a5b657a74897dd7b3cd9f683",
-			"urls": [
-				"bzz-raw://e4e68742c51114be2a007fb2f4e806d7f52aa0684ef6e3caa091f5340de78bcc",
-				"dweb:/ipfs/QmPQwxbDKLVFUoAArHQotwdivGTEMav2JjBSdpPaacywdL"
+				"bzz-raw://8c38bc5fcaf1114b167be2ff335df8c09857cb8281f65c617e4fe66956f6381d",
+				"dweb:/ipfs/QmQPhdJPCRDy8nkq3SrNtKT5BYaeh2VNUeEDHFh5XTz93e"
 			]
 		}
 	},

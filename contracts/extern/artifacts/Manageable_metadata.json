@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -131,6 +131,19 @@
 						"newManager": "new `_manager` address.",
 						"previousManager": "previous `_manager` address."
 					}
+				},
+				"OwnershipOffered(address)": {
+					"details": "Emitted when `_pendingOwner` has been changed.",
+					"params": {
+						"pendingOwner": "new `_pendingOwner` address."
+					}
+				},
+				"OwnershipTransferred(address,address)": {
+					"details": "Emitted when `_owner` has been changed.",
+					"params": {
+						"newOwner": "new `_owner` address.",
+						"previousOwner": "previous `_owner` address."
+					}
 				}
 			},
 			"kind": "dev",
@@ -186,9 +199,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/extern/Manageable.sol": "Manageable"
+			"contracts/extern/Manageable.sol": "Manageable"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -200,7 +213,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/extern/Manageable.sol": {
+		"contracts/extern/Manageable.sol": {
 			"keccak256": "0x7e0329b4e8e4267f5c2bd57920b7cf4ca19afb17f1ef80806e6ec59657b00f79",
 			"urls": [
 				"bzz-raw://1d1f8b70220dd693f97314c10f13a5979984929040b87c8aba1136783e93de4e",

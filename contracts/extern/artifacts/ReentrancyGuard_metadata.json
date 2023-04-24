@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -19,9 +19,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/extern/ReentrancyGuard.sol": "ReentrancyGuard"
+			"contracts/extern/ReentrancyGuard.sol": "ReentrancyGuard"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -33,7 +33,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/extern/ReentrancyGuard.sol": {
+		"contracts/extern/ReentrancyGuard.sol": {
 			"keccak256": "0xc22e3821b0edcf88d68f8fb09a84fd40b5f4b0b004ffe9227955a9f70c65fea3",
 			"urls": [
 				"bzz-raw://f5026d8cfc9d1b4f9a094aa344a173a55aa4d76f401258a6841cad3c6322f96f",

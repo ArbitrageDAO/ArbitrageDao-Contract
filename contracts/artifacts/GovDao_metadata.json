@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -196,6 +196,21 @@
 			}
 		],
 		"devdoc": {
+			"events": {
+				"OwnershipOffered(address)": {
+					"details": "Emitted when `_pendingOwner` has been changed.",
+					"params": {
+						"pendingOwner": "new `_pendingOwner` address."
+					}
+				},
+				"OwnershipTransferred(address,address)": {
+					"details": "Emitted when `_owner` has been changed.",
+					"params": {
+						"newOwner": "new `_owner` address.",
+						"previousOwner": "previous `_owner` address."
+					}
+				}
+			},
 			"kind": "dev",
 			"methods": {
 				"claimOwnership()": {
@@ -241,9 +256,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/Government.sol": "GovDao"
+			"contracts/Government.sol": "GovDao"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -255,28 +270,28 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/Government.sol": {
+		"contracts/Government.sol": {
 			"keccak256": "0x3ad5836f3a56f05173890ccb1b1ac2f69f53bc9b32ea24fcdcb54f3cae1b437b",
 			"urls": [
 				"bzz-raw://6903338f78342fa1fff44459c06a16ad114ee2b4959f67fc5e64bb8c4267b471",
 				"dweb:/ipfs/QmSJDxAmn7z6eoaiYxc1PGjRcz5jmZ8AcacNLJfb9zounE"
 			]
 		},
-		"ArbitrageDao-Contract/contracts/extern/Manageable.sol": {
+		"contracts/extern/Manageable.sol": {
 			"keccak256": "0x7e0329b4e8e4267f5c2bd57920b7cf4ca19afb17f1ef80806e6ec59657b00f79",
 			"urls": [
 				"bzz-raw://1d1f8b70220dd693f97314c10f13a5979984929040b87c8aba1136783e93de4e",
 				"dweb:/ipfs/QmNYmRYUDvVUo8rs55hsUgod8NyVfmtFBVHvDfifcpAcXy"
 			]
 		},
-		"ArbitrageDao-Contract/contracts/interface/IArbitrage.sol": {
+		"contracts/interface/IArbitrage.sol": {
 			"keccak256": "0x5caef556a7c4ab75f0fd3c5919e8b493be8b55f5bc24a080c8f450d307eecee8",
 			"urls": [
 				"bzz-raw://ef1c969b1d23ab84b12eea3a0141606d431e82cffb5b563ff0a7b68a81466849",
 				"dweb:/ipfs/QmR54vHuMiZo55gnh9e8ahKZquhAgoz5MtrN5wcQBTUsAu"
 			]
 		},
-		"ArbitrageDao-Contract/contracts/interface/IStrategy.sol": {
+		"contracts/interface/IStrategy.sol": {
 			"keccak256": "0x9de5cc70ae966bbf186cf229cef031e38d7f22a7f18fcc5daeae1a9d0824ac9d",
 			"urls": [
 				"bzz-raw://304c2d8fd378a86044a90c75283db7229b5a397ec827fcaab6a214252f340a12",

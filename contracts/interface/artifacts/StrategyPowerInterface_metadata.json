@@ -9,16 +9,34 @@
 				"inputs": [
 					{
 						"internalType": "address",
-						"name": "strategy",
+						"name": "user",
 						"type": "address"
-					}
-				],
-				"name": "getLinkPrice",
-				"outputs": [
+					},
 					{
 						"internalType": "uint256",
-						"name": "",
+						"name": "power",
 						"type": "uint256"
+					}
+				],
+				"name": "injectPower",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "proposal",
+						"type": "uint256"
+					}
+				],
+				"name": "resolve",
+				"outputs": [
+					{
+						"internalType": "bool",
+						"name": "",
+						"type": "bool"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -27,17 +45,17 @@
 			{
 				"inputs": [
 					{
-						"internalType": "address",
-						"name": "strategy",
-						"type": "address"
+						"internalType": "uint256",
+						"name": "proposal",
+						"type": "uint256"
 					}
 				],
-				"name": "getUniV3Price",
+				"name": "vote",
 				"outputs": [
 					{
-						"internalType": "uint256",
+						"internalType": "bool",
 						"name": "",
-						"type": "uint256"
+						"type": "bool"
 					}
 				],
 				"stateMutability": "nonpayable",
@@ -57,7 +75,7 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"contracts/interface/IArbitrageOracle.sol": "IArbitrageOracle"
+			"contracts/interface/IStrateryPower.sol": "StrategyPowerInterface"
 		},
 		"evmVersion": "paris",
 		"libraries": {},
@@ -71,11 +89,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"contracts/interface/IArbitrageOracle.sol": {
-			"keccak256": "0x62a9346f9dd5ca48902b969c28d87153ec01c07c2c7d247916556d3c087449fc",
+		"contracts/interface/IStrateryPower.sol": {
+			"keccak256": "0x1afdcc8fb33f4dbc8a6588a7eaf12d14fc13b4e3393b1bb41623cc0e1f519a5f",
 			"urls": [
-				"bzz-raw://d16329f21ef2b18e7a70973980bb2c4d580a7b2179106f0f19b0211df13976b3",
-				"dweb:/ipfs/QmYWLUC7fQMjQVvLLeNFhvQjbpwppEMj4hBVGvUMd9mJ4K"
+				"bzz-raw://be35cc35ec1c71295bea3050565ad35068377fec16081b05c135472d65110df4",
+				"dweb:/ipfs/QmNS4s23jXhgShXJLwxy5WRhyFtjt49tkWyj9RhE2HiTPF"
 			]
 		}
 	},

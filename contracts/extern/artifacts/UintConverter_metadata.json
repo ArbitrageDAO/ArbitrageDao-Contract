@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -57,9 +57,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/extern/UintConverter.sol": "UintConverter"
+			"contracts/extern/UintConverter.sol": "UintConverter"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -71,11 +71,11 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/extern/UintConverter.sol": {
-			"keccak256": "0x1e4f1ccc49c1ebf540168aa8b9ce63e12e10f266a5b657a74897dd7b3cd9f683",
+		"contracts/extern/UintConverter.sol": {
+			"keccak256": "0x9d7b2c0304d6dab84c7c93b3979090bcaf182be935f9dbe5218907495e65a6c0",
 			"urls": [
-				"bzz-raw://e4e68742c51114be2a007fb2f4e806d7f52aa0684ef6e3caa091f5340de78bcc",
-				"dweb:/ipfs/QmPQwxbDKLVFUoAArHQotwdivGTEMav2JjBSdpPaacywdL"
+				"bzz-raw://641d1256030885343c76ddae8ab77ac3f9371c72cc0370da1e7ef150d5b331ee",
+				"dweb:/ipfs/QmP2aZBzWNCFR5sQWgujJ6RfHq5S8cUz5ATGW2vMdUQ7CW"
 			]
 		}
 	},

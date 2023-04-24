@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -99,9 +99,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/interface/IArbitrage.sol": "IArbitrage"
+			"contracts/interface/IArbitrage.sol": "IArbitrage"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -113,7 +113,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/interface/IArbitrage.sol": {
+		"contracts/interface/IArbitrage.sol": {
 			"keccak256": "0x5caef556a7c4ab75f0fd3c5919e8b493be8b55f5bc24a080c8f450d307eecee8",
 			"urls": [
 				"bzz-raw://ef1c969b1d23ab84b12eea3a0141606d431e82cffb5b563ff0a7b68a81466849",

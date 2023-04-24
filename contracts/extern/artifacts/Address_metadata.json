@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -19,9 +19,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/extern/Address.sol": "Address"
+			"contracts/extern/Address.sol": "Address"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -33,7 +33,7 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/extern/Address.sol": {
+		"contracts/extern/Address.sol": {
 			"keccak256": "0x8b4ef6a367e25860ae20d022aa1dd61e44aeebfdce53e7b3b1afe9bfb647c57d",
 			"urls": [
 				"bzz-raw://888100668c5b409060b7574bba0f050b01c120a16e9c1c3174bb50e26a141398",

@@ -1,6 +1,6 @@
 {
 	"compiler": {
-		"version": "0.8.0+commit.c7dfd78e"
+		"version": "0.8.18+commit.87f61d96"
 	},
 	"language": "Solidity",
 	"output": {
@@ -199,6 +199,21 @@
 			}
 		],
 		"devdoc": {
+			"events": {
+				"OwnershipOffered(address)": {
+					"details": "Emitted when `_pendingOwner` has been changed.",
+					"params": {
+						"pendingOwner": "new `_pendingOwner` address."
+					}
+				},
+				"OwnershipTransferred(address,address)": {
+					"details": "Emitted when `_owner` has been changed.",
+					"params": {
+						"newOwner": "new `_owner` address.",
+						"previousOwner": "previous `_owner` address."
+					}
+				}
+			},
 			"kind": "dev",
 			"methods": {
 				"claimOwnership()": {
@@ -244,9 +259,9 @@
 	},
 	"settings": {
 		"compilationTarget": {
-			"ArbitrageDao-Contract/contracts/strategy.sol": "Strategy"
+			"contracts/strategy.sol": "Strategy"
 		},
-		"evmVersion": "istanbul",
+		"evmVersion": "paris",
 		"libraries": {},
 		"metadata": {
 			"bytecodeHash": "ipfs"
@@ -258,28 +273,28 @@
 		"remappings": []
 	},
 	"sources": {
-		"ArbitrageDao-Contract/contracts/extern/Manageable.sol": {
+		"contracts/extern/Manageable.sol": {
 			"keccak256": "0x7e0329b4e8e4267f5c2bd57920b7cf4ca19afb17f1ef80806e6ec59657b00f79",
 			"urls": [
 				"bzz-raw://1d1f8b70220dd693f97314c10f13a5979984929040b87c8aba1136783e93de4e",
 				"dweb:/ipfs/QmNYmRYUDvVUo8rs55hsUgod8NyVfmtFBVHvDfifcpAcXy"
 			]
 		},
-		"ArbitrageDao-Contract/contracts/interface/IStrategy.sol": {
+		"contracts/interface/IStrategy.sol": {
 			"keccak256": "0x9de5cc70ae966bbf186cf229cef031e38d7f22a7f18fcc5daeae1a9d0824ac9d",
 			"urls": [
 				"bzz-raw://304c2d8fd378a86044a90c75283db7229b5a397ec827fcaab6a214252f340a12",
 				"dweb:/ipfs/QmTj4UXAi54wu6xxt8z8kUoyMuSLZUqYkv7oFXVRZpwhEP"
 			]
 		},
-		"ArbitrageDao-Contract/contracts/interface/IStrategyPower.sol": {
+		"contracts/interface/IStrategyPower.sol": {
 			"keccak256": "0x5e22a1482bed086572956b8e29958a60677bb2015eeb5adc0e4dc52e5f3599d8",
 			"urls": [
 				"bzz-raw://0e809153bdd006cb3624a34fdba6b880116fd84b626172f832b1170f9383942f",
 				"dweb:/ipfs/QmZzc7Y1quAvtWL3uR4i1VpyTyKfZq6UkgeGFcwT5rqVLK"
 			]
 		},
-		"ArbitrageDao-Contract/contracts/strategy.sol": {
+		"contracts/strategy.sol": {
 			"keccak256": "0xc8da289d708fffd6102c9a5e16ab713bf606fdc5a5eda92e8a85fb7bb5aab4d9",
 			"urls": [
 				"bzz-raw://10cdeaab23dc8c17e0d3bdc832bb3caa1d71dc7add50b686956ea0c1af692d2a",
