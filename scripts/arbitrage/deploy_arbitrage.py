@@ -10,7 +10,7 @@ json_contract = {}
 def deploy_All():
     account = get_account()
     print("deploy StrategyPower")
-    factory = get_contract_address("factory")
+
     strategy_power = StrategyPower.deploy(
         account.address,
         account.address,
@@ -81,17 +81,21 @@ def deploy_All():
     router = get_contract_address("router")
     pool = get_contract_address("pool")
     stock_index = get_params("stock_index")
-    arbitrage_univ3 = ArbitrageDaoFactory.deploy(
+    arbitrage_dao_factory = ArbitrageDaoFactory.deploy(
+        router,
         {"from": account},
     )
     
     if (config["networks"][network.show_active()].get("verify", False)):
-        arbitrage_univ3.tx.wait(BLOCK_CONFIRMATIONS_FOR_VERIFICATION)
-        ArbitrageUniV3.publish_source(arbitrage_univ3)
+        arbitrage_dao_factory.tx.wait(BLOCK_CONFIRMATIONS_FOR_VERIFICATION)
+        ArbitrageDaoFactory.publish_source(arbitrage_dao_factory)
     else: 
-        arbitrage_univ3.tx.wait(1)
+        arbitrage_dao_factory.tx.wait(1)
 
-    json_contract["ArbitrageDaoFactory"] = arbitrage_univ3.address
+    json_contract["ArbitrageDaoFactory"] = arbitrage_dao_factory.address
+
+    tx = arbitrage_dao_factory.deployUniV3()
+
 
 
 def main():

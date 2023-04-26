@@ -86,7 +86,7 @@ contract ArbitrageUniV3 is IArbitrage, Manageable{
     function openPostion(
         uint256 amountOutMinimum,
         uint160 sqrtPriceLimitX96
-    ) external override returns (uint256 amount) {
+    ) external override onlyManager {
         
         require(amountOutMinimum > 0, "Invalid minimum output amount");
         address stock = getStock();
@@ -111,7 +111,7 @@ contract ArbitrageUniV3 is IArbitrage, Manageable{
     function closePostion(
         uint256 amountOutMinimum,
         uint160 sqrtPriceLimitX96
-    ) external override returns (uint256 amount) {
+    ) external override onlyManager {
         
         require(amountOutMinimum > 0, "Invalid minimum output amount");
         address stock = getStock();

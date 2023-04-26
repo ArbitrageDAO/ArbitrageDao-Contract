@@ -12,10 +12,9 @@ contract ArbitragePrice is IArbitrageOracle, Ownable {
         address tokenA;
         address tokenB;
         address aggregator;
+        uint24 fee;
     }
-     // UNISWAP V3 的 SwapRouter 
     address public constant uniswapV3SwapRouter = 0xE592427A0AEce92De3Edee1F18E0157C05861564;
-    // PANCANKESWAP V3 的 SwapRouter 
     address public constant pancakeswapV3SwapRouter = 0x1C232F01118CB8B424793ae03F870aa7D0ac7f77;
     mapping(address => Pool) public prices;
     address public univ3_router; 
@@ -26,13 +25,14 @@ contract ArbitragePrice is IArbitrageOracle, Ownable {
         aggregator = _aggregator;
     }
 
-    function setPool(address strategy, address tokenA, address tokenB) external onlyOwner {
+    function setPool(address strategy, address tokenA, address tokenB, uint24 fee) external onlyOwner {
         require(strategy != address(0), "ArbitragePrice: strategy cann't be zero address");
         require(tokenA != address(0), "ArbitragePrice: tokenA cann't be zero address");
         require(tokenB != address(0), "ArbitragePrice: tokenB cann't be zero address");
         Pool memory new_pool;
         new_pool.tokenA = tokenA;
         new_pool.tokenB = tokenB;
+        new_pool.fee = fee;
         prices[strategy] = new_pool;
     }
 
@@ -47,8 +47,9 @@ contract ArbitragePrice is IArbitrageOracle, Ownable {
         Pool memory pool = prices[strategy];
         address tokenA = pool.tokenA;
         address tokenB = pool.tokenB;
+        uint24 fee = pool.fee;
 
-        IUniswapV3Pool v3Pool = IUniswapV3Pool(IUniswapV3Factory(uniswapV3SwapRouter).getPool(tokenA, tokenB, 3000));
+        IUniswapV3Pool v3Pool = IUniswapV3Pool(IUniswapV3Factory(uniswapV3SwapRouter).getPool(tokenA, tokenB, fee));
         (uint160 sqrtRatioX96, , , , , , ) = v3Pool.slot0();
         uint32[] memory convertedSqrtRatioX96 = UintConverter.toUint32Array(sqrtRatioX96);
         (int56[] memory originprice, ) = v3Pool.observe(convertedSqrtRatioX96);

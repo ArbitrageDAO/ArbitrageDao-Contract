@@ -37,13 +37,14 @@ networks:
     from_key: "***"
     test_key: "***"
   polygon-weshare:
-    BPT: "0x00241dCC4a9c43D10895c4fF93D9493C52e7f8eB"
-    minterAmount: 100000000000000000000000
+    module: 0
+    router: "0x3a7C725C9852F03BFCD0741490A9D4738Cd4CbE8"
+    pool: "0xA374094527e1673A86dE625aa59517c5dE346d32"
+    stock_index: 0
     verify: False
-    save: "options_poly.json"
-    oracleManager: "0x5c82640C2b4ea1822A8335Fd1dbDb7CACcb9a1b0"
-    yieldManager: "0x5c82640C2b4ea1822A8335Fd1dbDb7CACcb9a1b0"
+    save: "eth_dev.json"
     from_key: "***"
+    test_key: "***"
   goerli-weshare:
     BPT: "0x2DbE60FAB268b7927136DeCb377D676A0aBab913"
     minterAmount: 100000000000000000000000

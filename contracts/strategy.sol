@@ -2,14 +2,14 @@ pragma solidity ^0.8.0;
 import './interface/IStrategy.sol';
 import './interface/IStrategyPower.sol';
 import './extern/Manageable.sol';
-abstract contract Strategy is Ownable {
+contract Strategy is Ownable {
     uint256 public module;
     address public power;
     uint256 public price;
     bool public long;
     address oracle;
 
-    constructor(uint256 _module, address owner) {
+    constructor(uint256 _module, address _owner)Ownable(_owner) {
         module = _module;
     }
 
