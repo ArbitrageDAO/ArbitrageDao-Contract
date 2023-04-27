@@ -2,15 +2,15 @@ pragma solidity ^0.8.0;
 import './interface/IArbitrage.sol';
 import './interface/IStrategy.sol';
 import './extern/Manageable.sol';
-contract GovDao is Ownable {
+contract GovDao is Manageable {
     address public arbitrage;
     address public strategy;
     uint256 public propurse;
-    constructor(address _strategy, address onwer)Ownable(onwer){
+    constructor(address _strategy, address onwer, address manager)Ownable(onwer) Manageable(manager){
         strategy = _strategy;
     }
 
-    function setArbitrage(address _arbitrage) external onlyOwner{
+    function setArbitrage(address _arbitrage) external onlyManager{
         arbitrage = _arbitrage;
     }
 
@@ -33,5 +33,6 @@ contract GovDao is Ownable {
         IArbitrage(arbitrage).closePostion(amountOutMinimum, sqrtPriceLimitX96);
         propurse = propurse+1;
     }
+
 
 }

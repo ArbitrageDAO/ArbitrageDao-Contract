@@ -44,7 +44,7 @@ contract ArbitrageUniV3 is IArbitrage, Manageable{
         }*/
     }
 
-    function getStock() private view returns(address stock){
+    function getStock() private view returns(address ){
         address stock = IUniswapV3Pool(pool).token0();
         if (stock_index == 1 )
         {
@@ -53,7 +53,7 @@ contract ArbitrageUniV3 is IArbitrage, Manageable{
         return stock;
     } 
 
-    function getMoney() private view returns(address money){
+    function getMoney() private view returns(address){
         address money = IUniswapV3Pool(pool).token1();
         if (stock_index == 1 )
         {

@@ -1,4 +1,6 @@
-from brownie import StrategyPower, Strategy, GovDao, ArbitrageUniV3,ArbitrageDaoFactory,accounts, config, network
+from brownie import ArbitrageDaoFactory,accounts, config, network
+from brownie.network import priority_fee
+priority_fee("2 gwei")
 from scripts.helpful_scripts import (
     get_account,
     get_contract_address,
@@ -9,78 +11,10 @@ import time,json
 json_contract = {}
 def deploy_All():
     account = get_account()
-    print("deploy StrategyPower")
-
-    strategy_power = StrategyPower.deploy(
-        account.address,
-        account.address,
-        {"from": account},
-    )
-    
-    if (config["networks"][network.show_active()].get("verify", False)):
-        strategy_power.tx.wait(BLOCK_CONFIRMATIONS_FOR_VERIFICATION)
-        StrategyPower.publish_source(strategy_power)
-    else: 
-        strategy_power.tx.wait(1)
-    json_contract["StrategyPower"] = strategy_power.address
-
-
-    print("deploy Strategy")
-    module = get_params("module")
   
-    strategy =  Strategy.deploy(
-        module,
-        account.address,
-        {"from": account},
-    )
-
-    if (config["networks"][network.show_active()].get("verify", False)):
-        strategy.tx.wait(BLOCK_CONFIRMATIONS_FOR_VERIFICATION)
-        Strategy.publish_source(strategy)
-    else: 
-        strategy.tx.wait(1)
-
-    json_contract["Strategy"] = strategy.address
-
-    print("deploy GovDao ")
-    gov_dao =  GovDao.deploy(
-        strategy.address,
-        account.address,
-        {"from": account},
-    )
-
-    if (config["networks"][network.show_active()].get("verify", False)):
-        gov_dao.tx.wait(BLOCK_CONFIRMATIONS_FOR_VERIFICATION)
-        GovDao.publish_source(gov_dao)
-    else: 
-        gov_dao.tx.wait(1)
-
-    json_contract["GovDao"] = strategy.address
-
-    print("deploy ArbitrageUniV3")
-    router = get_contract_address("router")
-    pool = get_contract_address("pool")
-    stock_index = get_params("stock_index")
-    arbitrage_univ3 = ArbitrageUniV3.deploy(
-        account.address,
-        router,
-        pool,
-        stock_index,
-        {"from": account},
-    )
-    
-    if (config["networks"][network.show_active()].get("verify", False)):
-        arbitrage_univ3.tx.wait(BLOCK_CONFIRMATIONS_FOR_VERIFICATION)
-        ArbitrageUniV3.publish_source(arbitrage_univ3)
-    else: 
-        arbitrage_univ3.tx.wait(1)
-
-    json_contract["ArbitrageUniV3"] = arbitrage_univ3.address
-
     print("deploy ArbitrageDaoFactory")
     router = get_contract_address("router")
-    pool = get_contract_address("pool")
-    stock_index = get_params("stock_index")
+    
     arbitrage_dao_factory = ArbitrageDaoFactory.deploy(
         router,
         {"from": account},
@@ -93,8 +27,11 @@ def deploy_All():
         arbitrage_dao_factory.tx.wait(1)
 
     json_contract["ArbitrageDaoFactory"] = arbitrage_dao_factory.address
-
-    tx = arbitrage_dao_factory.deployUniV3()
+    pool = get_contract_address("pool")
+    stock_index = get_params("stock_index")
+    module = get_params("module")
+    tx = arbitrage_dao_factory.deploy(pool, stock_index, module)
+    tx.wait(1)
 
 
 

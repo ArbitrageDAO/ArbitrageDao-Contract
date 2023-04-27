@@ -34,7 +34,7 @@ networks:
     stock_index: 0
     verify: False
     save: "eth_dev.json"
-    from_key: "***"
+    from_key: "ae21f91c7ed3eb122940658f4e0762caf16813dd40c1e18d097347ea42b2bfa1"
     test_key: "***"
   polygon-weshare:
     module: 0
